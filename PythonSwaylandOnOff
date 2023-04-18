@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+from tkinter import *
+import subprocess
+
+def button_action0():
+	subprocess.run(["swaymsg", '[class=".*"]', "kill"])
+def button_action1():
+	subprocess.run(["swaymsg", '[class=".*"]', "kill"])
+	subprocess.run(["poweroff"])
+def button_action2():
+	subprocess.run(["swaymsg", '[class=".*"]', "kill"])
+	subprocess.run(["systemctl suspend"])
+def button_action3():
+	subprocess.run(["swaymsg", '[class=".*"]', "kill"])
+	subprocess.run(["reboot"])
+
+fenster=Tk()
+fenster.title("toolbar")
+change_button0=Button(fenster, text="Killall", command=button_action0)
+change_button1=Button(fenster, text="shutdown", command=button_action1)
+change_button2=Button(fenster, text="sleep", command=button_action2)
+change_button3=Button(fenster, text="reboot", command=button_action3)
+
+change_button0.pack()
+change_button1.pack()
+change_button2.pack()
+change_button3.pack()
+
+fenster.mainloop()
